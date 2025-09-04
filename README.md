@@ -1,6 +1,6 @@
 
 <main>
-  <h1>Moshe Thishinsky</h1>
+  <h1>Moshe</h1>
   <p>Product designer</p>
   <p>
     <a href="tel:+972584687399">058-4687399</a><br>
