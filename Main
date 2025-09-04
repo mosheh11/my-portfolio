@@ -1,189 +1,24 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Links</title>
-  <meta name="description" content="Quick links page" />
-  <style>
-    /* ---- Base / Reset ---- */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: #0f172a; /* slate-900 */
-      background: radial-gradient(1000px 500px at 50% -10%, #e5e7eb 0%, #f8fafc 35%, #ffffff 70%);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        color: #e5e7eb; /* slate-200 */
-        background: radial-gradient(1000px 500px at 50% -10%, #0b1020 0%, #0f172a 35%, #111827 70%);
-      }
-    }
-
-    .card {
-      width: 100%;
-      max-width: 560px;
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(15, 23, 42, 0.1);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 12px 40px rgba(2, 6, 23, 0.08);
-      backdrop-filter: blur(8px);
-    }
-    @media (prefers-color-scheme: dark) {
-      .card {
-        background: rgba(17, 24, 39, 0.6);
-        border-color: rgba(148, 163, 184, 0.18);
-        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
-      }
-    }
-
-    h1 {
-      margin: 0 0 2px 0;
-      font-size: clamp(22px, 3vw, 28px);
-      letter-spacing: -0.02em;
-    }
-    .subtitle {
-      margin: 0 0 18px;
-      font-size: 14px;
-      color: #475569; /* slate-600 */
-    }
-    @media (prefers-color-scheme: dark) {
-      .subtitle { color: #94a3b8; } /* slate-400 */
-    }
-
-    .links { display: grid; gap: 12px; margin-top: 8px; }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 14px;
-      padding: 14px 16px;
-      border: 1px solid transparent;
-      transition: transform 120ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-      user-select: none;
-      will-change: transform;
-    }
-    .btn:focus-visible {
-      outline: 3px solid #93c5fd; /* blue-300 */
-      outline-offset: 2px;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-
-    /* WhatsApp style */
-    .btn.whatsapp {
-      background: #e7f8ee;
-      color: #075E54;
-      border-color: #b8e9cd;
-      box-shadow: 0 1px 0 rgba(7, 94, 84, 0.1);
-    }
-    .btn.whatsapp:hover { background: #dff5e9; }
-
-    /* Figma style */
-    .btn.figma {
-      background: #eef2ff;
-      color: #312e81;
-      border-color: #c7d2fe;
-      box-shadow: 0 1px 0 rgba(49, 46, 129, 0.1);
-    }
-    .btn.figma:hover { background: #e5e9ff; }
-
-    @media (prefers-color-scheme: dark) {
-      .btn.whatsapp {
-        background: rgba(37, 211, 102, 0.14);
-        color: #c7f0d8;
-        border-color: rgba(37, 211, 102, 0.25);
-      }
-      .btn.whatsapp:hover { background: rgba(37, 211, 102, 0.2); }
-
-      .btn.figma {
-        background: rgba(99, 102, 241, 0.14);
-        color: #e0e7ff;
-        border-color: rgba(99, 102, 241, 0.25);
-      }
-      .btn.figma:hover { background: rgba(99, 102, 241, 0.2); }
-    }
-
-    .btn svg {
-      width: 22px;
-      height: 22px;
-      flex: 0 0 22px;
-    }
-
-    footer {
-      margin-top: 18px;
-      font-size: 12px;
-      color: #64748b; /* slate-500 */
-      text-align: center;
-    }
-    @media (prefers-color-scheme: dark) {
-      footer { color: #94a3b8; }
-    }
-
-    .note {
-      margin-top: 12px;
-      font-size: 12px;
-      color: #475569;
-    }
-    @media (prefers-color-scheme: dark) {
-      .note { color: #94a3b8; }
-    }
-  </style>
-</head>
-<body>
-  <main class="card" role="main">
-    <h1>Links</h1>
-    <p class="subtitle">Quick access to chat and files</p>
-
-    <nav class="links" aria-label="Primary links">
-      <!-- WhatsApp: replace PHONE with digits only (e.g., 972501234567). 
-           Optional: change the text= param to prefill a message. -->
-      <a class="btn whatsapp" 
-         href="https://wa.me/972501234567?text=Hi%20Moshe%2C%20found%20you%20via%20the%20site" 
-         target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <!-- WhatsApp SVG -->
-        <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M19.11 17.52c-.3-.15-1.79-.88-2.07-.98-.28-.1-.49-.15-.7.15-.2.3-.8.98-.98 1.18-.18.2-.36.23-.66.08-.3-.15-1.26-.46-2.4-1.47-.88-.78-1.48-1.74-1.66-2.04-.18-.3-.02-.47.13-.62.13-.12.3-.31.45-.46.15-.15.2-.26.3-.44.1-.18.05-.33-.03-.46-.08-.15-.7-1.68-.96-2.3-.25-.6-.5-.5-.7-.5-.18 0-.38-.02-.58-.02-.2 0-.46.07-.7.33-.24.26-.92.9-.92 2.2 0 1.3.94 2.56 1.07 2.73.13.17 1.84 2.8 4.47 3.93 2.62 1.13 2.62.75 3.09.72.47-.03 1.5-.62 1.71-1.22.2-.6.2-1.12.14-1.22-.06-.1-.24-.16-.54-.31zM16 3C9.37 3 4 8.37 4 15c0 2.12.55 4.1 1.52 5.82L4 29l8.36-1.47C13.97 28.5 14.97 29 16 29c6.63 0 12-5.37 12-12S22.63 3 16 3zm0 22.5c-.9 0-1.78-.18-2.64-.53l-.19-.08-4.92.87.87-4.8-.1-.2C8.33 19.87 8 17.96 8 16c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
-        Chat on WhatsApp
-      </a>
-
-      <!-- Figma: replace the href with your file/profile/team link -->
-      <a class="btn figma" 
-         href="https://www.figma.com/@your-handle" 
-         target="_blank" rel="noopener" aria-label="Open Figma">
-        <!-- Figma SVG (monochrome) -->
-        <svg viewBox="0 0 256 384" aria-hidden="true">
-          <path fill="currentColor" d="M128 128H96a64 64 0 1 1 0-128h32v128zm0 0h32a64 64 0 1 0 0-128h-32v128zm0 0H96v128h32a64 64 0 1 0 0-128zm0 128H96a64 64 0 1 0 0 128h32V256zm0 0h32a64 64 0 1 1 0 128h-32V256z"/>
-        </svg>
-        Open Figma
-      </a>
-    </nav>
-
-    <p class="note">
-      <!-- Small helper text; safe to remove -->
-      Tip: edit this file to change the WhatsApp number and the Figma link.
-    </p>
-
-    <footer>
-      © <span id="y"></span> • Made with ❤️
-    </footer>
-  </main>
-
-  <script>
-    // Set current year in footer
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
+<html lang="en" dir="ltr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moshe Thishinsky</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;font-family:Montserrat,system-ui,sans-serif;min-height:100svh;display:grid;place-items:center start;padding:0 24vw;color:#3a4759}
+  h1{margin:0 0 .3rem;font-weight:700;font-size:clamp(28px,5vw,40px);line-height:1.15;color:#1e63ea}
+  p{margin:.25rem 0 0}
+  a{color:inherit;text-decoration:none}
+  a:hover{text-decoration:underline}
+</style>
+<main>
+  <h1>Moshe Thishinsky</h1>
+  <p>Product designer</p>
+  <p>
+    <a href="mailto:Hi@moshe1.com">Hi@moshe1.com</a><br>
+    <a href="tel:+972584687399">058-4687399</a><br>
+    <a href="#">Portfolio</a><br>
+    <a href="#">Resume</a>
+  </p>
+</main>
 </html>
