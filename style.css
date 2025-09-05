@@ -103,7 +103,7 @@ body.light-mode .contact-item {
 
 body.light-mode .link-item:hover,
 body.light-mode .contact-item:hover {
-    color: #000;
+    color: red;
 }
 
 body.light-mode .theme-toggle {
