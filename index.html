@@ -6,17 +6,16 @@
     <title>Moshe Thisinsky - Senior Product Designer</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23000000'/%3E%3C/svg%3E" type="image/svg+xml">
     <style>
         @import url('https://fonts.cdnfonts.com/css/avenir');
         .background-container {
-            /* ודא שהתמונה קיימת בנתיב ובשם הזה */
             background-image: url('assets/images/background-light.jpg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
         body.dark-theme .background-container {
-            /* ודא שהתמונה קיימת בנתיב ובשם הזה */
             background-image: url('assets/images/background-dark.jpg.jpg');
         }
         .preload-img {
@@ -43,16 +42,12 @@
             </div>
         </div>
     </div>
-    <!-- תמונות נסתרות ל-preload -->
-    <!-- ודא שהתמונות קיימות בנתיב הזה -->
     <img src="assets/images/background-light.jpg.jpg" class="preload-img" alt="preload background light">
     <img src="assets/images/background-dark.jpg.jpg" class="preload-img" alt="preload background dark">
     <script src="script.js"></script>
     <script>
-        // Toggle theme and update body class
         document.getElementById('theme-toggle').onclick = function() {
             document.body.classList.toggle('dark-theme');
-            // Optional: change icon
             const icon = this.querySelector('i');
             icon.classList.toggle('fa-sun');
             icon.classList.toggle('fa-moon');
