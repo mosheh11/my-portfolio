@@ -17,23 +17,22 @@ html, body {
 body {
     font-family: 'Avenir', sans-serif;
     text-align: center;
-    direction: ltr; /* יישור משמאל לימין */
+    direction: ltr;
     color: var(--text-color-dark);
 }
-
 
 .background-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* יישור למעלה */
+    justify-content: flex-start;
     align-items: center;
     background-image: var(--bg-dark);
     background-size: cover;
     background-position: center;
     transition: background-image 0.5s ease;
     position: relative;
-    padding-top: 100px; /* פאדינג עליון */
+    padding-top: 100px;
 }
 
 .theme-toggle {
@@ -42,7 +41,7 @@ body {
     left: 12px;
     width: 40px;
     height: 40px;
-    background-color: rgba(248, 248, 248, 0.2); /* 10% opacity */
+    background-color: rgba(248, 248, 248, 0.2);
     border: none;
     border-radius: 12px;
     font-size: 1.5rem;
@@ -59,7 +58,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 20px 40px 20px; /* הסר פאדינג עליון כאן */
+    padding: 0 20px 40px 20px;
 }
 
 .name {
@@ -96,32 +95,51 @@ body {
 }
 
 /* Light Mode */
-body.light-mode {
-    color: var(--text-color-light);
+body.dark-theme {
+    color: var(--text-color-dark); /* טקסט לבן במצב כהה */
 }
 
-body.light-mode .background-container {
+body.dark-theme .title {
+    color: var(--text-color-dark);
+}
+
+body.dark-theme .link-item,
+body.dark-theme .contact-item {
+    color: var(--link-color-dark);
+}
+
+body.dark-theme .link-item:hover,
+body.dark-theme .contact-item:hover {
+    color: #fff;
+}
+
+body.light-theme {
+    color: var(--text-color-light); /* טקסט כהה במצב בהיר */
+}
+
+body.light-theme .background-container {
     background-image: var(--bg-light);
 }
 
-body.light-mode .link-item,
-body.light-mode .contact-item {
+body.light-theme .theme-toggle {
+    color: var(--text-color-light);
+}
+
+body.light-theme .title {
+    color: var(--text-color-light);
+}
+
+body.light-theme .link-item,
+body.light-theme .contact-item {
     color: var(--link-color-light);
 }
 
-body.light-mode .link-item:hover,
-body.light-mode .contact-item:hover {
+body.light-theme .link-item:hover,
+body.light-theme .contact-item:hover {
     color: #000;
 }
 
-body.light-mode .theme-toggle {
-    color: var(--text-color-light);
-}
-
-body.light-mode .content-container {
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.4);
-}
-
-body.light-mode .title {
-    color: var(--text-color-light);
+/* הסרת הצללה מהטקסט במצב בהיר */
+body.light-theme .content-container {
+    text-shadow: none;
 }
