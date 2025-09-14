@@ -4,54 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moshe Thisinsky - Senior Product Designer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23000000'/%3E%3C/svg%3E" type="image/svg+xml">
     <style>
         @import url('https://fonts.cdnfonts.com/css/avenir');
         .background-container {
-            background-image: url('assets/images/background-light.jpg.jpg');
+            background-image: url('assets/images/background-dark.jpg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
-        body.dark-theme .background-container {
+        body.light-mode .background-container {
+            background-image: url('assets/images/background-light.jpg');
+        }
+        body:not(.light-mode) .background-container {
             background-image: url('assets/images/background-dark.jpg.jpg');
         }
         .preload-img {
             display: none;
+        }
+        /* ודא שב-CSS שלך מוגדר צבע טקסט כהה עבור מצב בהיר */
+        body.light-mode, body.light-mode .content-container, body.light-mode .links a, body.light-mode .contact a {
+            color: #222;
         }
     </style>
 </head>
 <body>
     <div class="background-container">
         <button id="theme-toggle" class="theme-toggle">
-            <i class="fas fa-sun"></i>
+            <img src="assets/Icon/sun.svg" alt="theme-toggle-icon" class="theme-icon">
         </button>
         <div class="content-container">
             <h1 class="name">Moshe Thishinsky </h1>
             <p class="title">Senior Product Designer</p>
             <div class="links">
-                <a href="#" class="link-item"><i class="fas fa-folder"></i> Portfolio</a>
-                <a href="#" class="link-item"><i class="fas fa-file-alt"></i> Resume</a>
-                <a href="#" class="link-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://www.figma.com/design/bp8CK3yVWrnde9W9UiorAd/Moshe-s-Portfolio?node-id=864-7721&t=a1yPCOQqBdn6HsCu-1" class="link-item" target="_blank"><img src="assets/Icon/figma.svg" alt="figma-icon" class="link-icon"> Portfolio</a>
+                <a href="https://drive.google.com/file/d/1SYYBdQPG_iJvdQjAmh69UnW1Dej50aIC/view" class="link-item" target="_blank"><img src="assets/Icon/file.svg" alt="file-icon" class="link-icon"> Resume</a>
+                <a href="https://www.linkedin.com/in/moshe-thishinsky-aa7626226/" class="link-item" target="_blank"><img src="assets/Icon/lin.svg" alt="linkedin-icon" class="link-icon"> LinkedIn</a>
             </div>
             <div class="contact">
-                <a href="mailto:hi@moshe1.com" class="contact-item"><i class="fas fa-at"></i> hi@moshe1.com</a>
-                <a href="tel:0584-687-399" class="contact-item"><i class="fas fa-phone"></i> 0584-687-399</a>
+                <span class="contact-item copy-email" onclick="navigator.clipboard.writeText('hi@moshe1.com').then(() => { const toast = document.createElement('div'); toast.textContent = 'Email copied to clipboard!'; toast.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #333; color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000; font-size: 14px;'; document.body.appendChild(toast); setTimeout(() => document.body.removeChild(toast), 3000); })"><img src="assets/Icon/at-sign.svg" alt="email-icon" class="contact-icon"> hi@moshe1.com</span>
+                <a href="https://wa.me/972584687399" class="contact-item" target="_blank"><img src="assets/Icon/Wha.svg" alt="whatsapp-icon" class="contact-icon"> 0584-687-399</a>
             </div>
         </div>
     </div>
-    <img src="assets/images/background-light.jpg.jpg" class="preload-img" alt="preload background light">
+    <!-- תמונות נסתרות ל-preload -->
+    <!-- ודא שהתמונות קיימות בנתיב הזה -->
+    <img src="assets/images/background-light.jpg" class="preload-img" alt="preload background light">
     <img src="assets/images/background-dark.jpg.jpg" class="preload-img" alt="preload background dark">
     <script src="script.js"></script>
-    <script>
-        document.getElementById('theme-toggle').onclick = function() {
-            document.body.classList.toggle('dark-theme');
-            const icon = this.querySelector('i');
-            icon.classList.toggle('fa-sun');
-            icon.classList.toggle('fa-moon');
-        };
-    </script>
+    <!-- הסרתי את הסקריפט שמוסיף dark-theme -->
 </body>
 </html>

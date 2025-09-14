@@ -1,17 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-    const icon = themeToggle.querySelector('i');
+    const icon = themeToggle.querySelector('.theme-icon');
 
     const savedTheme = localStorage.getItem('theme') || 'dark';
     if (savedTheme === 'light') {
         body.classList.add('light-mode');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
+        icon.src = 'assets/Icon/moon.svg';
+        icon.alt = 'moon-icon';
+        icon.classList.remove('sun-icon');
+        icon.classList.add('moon-icon');
     } else {
         body.classList.remove('light-mode');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
+        icon.src = 'assets/Icon/sun.svg';
+        icon.alt = 'sun-icon';
+        icon.classList.remove('moon-icon');
+        icon.classList.add('sun-icon');
     }
 
     themeToggle.addEventListener('click', () => {
@@ -20,11 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
 
         if (isLightMode) {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
+            icon.src = 'assets/Icon/moon.svg';
+            icon.alt = 'moon-icon';
+            icon.classList.remove('sun-icon');
+            icon.classList.add('moon-icon');
         } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
+            icon.src = 'assets/Icon/sun.svg';
+            icon.alt = 'sun-icon';
+            icon.classList.remove('moon-icon');
+            icon.classList.add('sun-icon');
         }
     });
 });

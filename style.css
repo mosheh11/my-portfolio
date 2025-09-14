@@ -1,5 +1,5 @@
 :root {
-    --bg-light: url('assets/images/background-light.jpg.jpg');
+    --bg-light: url('assets/images/background-light.jpg');
     --bg-dark: url('assets/images/background-dark.jpg.jpg');
     --text-color-light: #444;
     --text-color-dark: #fff;
@@ -17,22 +17,23 @@ html, body {
 body {
     font-family: 'Avenir', sans-serif;
     text-align: center;
-    direction: ltr;
+    direction: ltr; /* יישור משמאל לימין */
     color: var(--text-color-dark);
 }
+
 
 .background-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; /* יישור למעלה */
     align-items: center;
     background-image: var(--bg-dark);
     background-size: cover;
     background-position: center;
     transition: background-image 0.5s ease;
     position: relative;
-    padding-top: 100px;
+    padding-top: 100px; /* פאדינג עליון */
 }
 
 .theme-toggle {
@@ -41,7 +42,7 @@ body {
     left: 12px;
     width: 40px;
     height: 40px;
-    background-color: rgba(248, 248, 248, 0.2);
+    background-color: rgba(248, 248, 248, 0.2); /* 10% opacity */
     border: none;
     border-radius: 12px;
     font-size: 1.5rem;
@@ -53,12 +54,48 @@ body {
     justify-content: center;
 }
 
+.theme-toggle .theme-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1); /* Make SVG white */
+}
+
+.theme-toggle:hover .sun-icon {
+    transform: rotate(90deg);
+}
+
+.theme-toggle:hover .moon-icon {
+    transform: rotate(20deg);
+}
+
+/* Icon styling */
+.link-icon, .contact-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+    filter: brightness(0) invert(1); /* Make SVG white in dark mode */
+}
+
+/* Light mode - make all icons dark */
+body.light-mode .theme-toggle .theme-icon,
+body.light-mode .link-icon,
+body.light-mode .contact-icon {
+    filter: brightness(0); /* Make SVG black in light mode */
+}
+
+/* Dark mode - keep theme icon white */
+.theme-toggle .theme-icon {
+    filter: brightness(0) invert(1); /* Make SVG white */
+}
+
 .content-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 20px 40px 20px;
+    padding: 0 20px 40px 20px; /* הסר פאדינג עליון כאן */
 }
 
 .name {
@@ -94,52 +131,37 @@ body {
     color: #fff;
 }
 
+.copy-email {
+    cursor: pointer;
+}
+
 /* Light Mode */
-body.dark-theme {
-    color: var(--text-color-dark); /* טקסט לבן במצב כהה */
+body.light-mode {
+    color: var(--text-color-light);
 }
 
-body.dark-theme .title {
-    color: var(--text-color-dark);
-}
-
-body.dark-theme .link-item,
-body.dark-theme .contact-item {
-    color: var(--link-color-dark);
-}
-
-body.dark-theme .link-item:hover,
-body.dark-theme .contact-item:hover {
-    color: #fff;
-}
-
-body.light-theme {
-    color: var(--text-color-light); /* טקסט כהה במצב בהיר */
-}
-
-body.light-theme .background-container {
+body.light-mode .background-container {
     background-image: var(--bg-light);
 }
 
-body.light-theme .theme-toggle {
-    color: var(--text-color-light);
-}
-
-body.light-theme .title {
-    color: var(--text-color-light);
-}
-
-body.light-theme .link-item,
-body.light-theme .contact-item {
+body.light-mode .link-item,
+body.light-mode .contact-item {
     color: var(--link-color-light);
 }
 
-body.light-theme .link-item:hover,
-body.light-theme .contact-item:hover {
+body.light-mode .link-item:hover,
+body.light-mode .contact-item:hover {
     color: #000;
 }
 
-/* הסרת הצללה מהטקסט במצב בהיר */
-body.light-theme .content-container {
-    text-shadow: none;
+body.light-mode .theme-toggle {
+    color: var(--text-color-light);
+}
+
+body.light-mode .content-container {
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.4);
+}
+
+body.light-mode .title {
+    color: var(--text-color-light);
 }
